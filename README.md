@@ -17,6 +17,3 @@ generates IIIF manifests using a csv as input
 - This script creates v3 manifests.
 - If your csv includes the height and width (in pixels) of your objects, then you don't need the getdimensions function or the infojson field in your metadata. You may comment out lines 7-11 and define height and width in line 37 as values from your csv instead if you wish.
 - For development purposes, you may wish to install the Live Server VSCode extension. Then you can use a local server address to use these manifests in your own project. 
-
-
-# As written, this script requires the Live Server VSCode extension
