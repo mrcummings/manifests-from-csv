@@ -1,15 +1,3 @@
-# Required metadata fields:
-# - display_template
-# - objectid
-# - parentid field in which each child object is assigned a value equal to the objectid of its parent
-# - pid
-# - title
-# - infojson field with links to info.json files using IIIF image api
-# - object_location
-# If csv has data on the height and width of each object, the getdimensions portion can be commented out and height and width can be redefined to pull from that field instead.
-# This script creates v3 manifests.
-# As written, this script requires the Live Server VSCode extension
-
 import csv
 from iiif_prezi3 import Manifest
 import requests
