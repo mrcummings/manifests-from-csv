@@ -47,9 +47,13 @@ for index,(manifestid,values) in enumerate(working_data.items()):
                                     height=height,
                                     width=width
                                     )
-        
-#   Saves the json file, prints the name of the file that has just been saved, and continues until all json files have been created.        
-    with open('manifest-'+values['parent']['pid']+'.json', 'w') as f:
+    # Create a directory named after the PID if it doesn't exist
+    directory = values['parent']['pid']
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # Save the manifest in the created directory
+    with open(os.path.join(directory, 'manifest.json'), 'w') as f:
         print(manifest.json(indent=2),file=f)
 #       Uncomment the below line for testing        
         #break
