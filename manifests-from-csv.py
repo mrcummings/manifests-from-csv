@@ -2,6 +2,7 @@ import csv
 from iiif_prezi3 import Manifest
 import requests
 import json
+import os
 
 # Pull height and width of each image from its info.json file
 def getdimensions(infojson):
@@ -43,7 +44,7 @@ for index,(manifestid,values) in enumerate(working_data.items()):
                                     
                                     anno_page_id="https://digitalcollections.lib.iastate.edu/canvas/{}".format(child['objectid'] + "/1"),
                                     anno_id="https://digitalcollections.lib.iastate.edu/canvas/{}".format(child['objectid'] + "/annotation/image"),
-                                    format="image/jpg",
+                                    format="image/jpeg",
                                     height=height,
                                     width=width
                                     )
@@ -51,9 +52,10 @@ for index,(manifestid,values) in enumerate(working_data.items()):
     directory = values['parent']['pid']
     if not os.path.exists(directory):
         os.makedirs(directory)
+        #break
+
 
     # Save the manifest in the created directory
     with open(os.path.join(directory, 'manifest.json'), 'w') as f:
-        print(manifest.json(indent=2),file=f)
-#       Uncomment the below line for testing        
-        #break
+        print(manifest.json(indent=2),file=f)     
+        break
